@@ -1,0 +1,110 @@
+body { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F4C95D;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title { 
+    font-family: 'Fredoka One', cursive;
+    font-size: 80px;
+    margin-top: 20px;
+    color: #DD7230;
+}
+
+.mainContent {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.centerContent {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-container {
+    background-color: white;
+    border: 1px solid black;
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+    height: 400px;
+    width: 400px;
+    margin-top: 50px;
+}
+
+.square {
+    border: 1px solid #2d2e2d;
+}
+
+.blob1, .blob2, .blob3 {
+    width: 150px;
+    height: 150px;
+    background-color: #DD7230;
+    border-color: transparent;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: #F4C95D;
+}
+
+
+.blob1 { 
+    border-radius:  94% 34% 30% 67% / 67% 37% 56% 34%;
+}
+
+.blob2 { 
+    border-radius:  79% 22% 89% 36% / 51% 61% 56% 55%;
+}
+
+.blob3 { 
+    border-radius:  84% 31% 20% 50% / 67% 37% 56% 34%;
+}
+
+.blob-containers { 
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    margin-right: 50px;
+}
+
+
+.slider-container { 
+    display:flex; 
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+
+}
+
+.slider-output { 
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    color: #DD7230;
+    margin-left: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #DD7230;
+    border-radius: 10px;
+    width: 300px;
+    
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #F4C95D;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 60%;
+}
+
