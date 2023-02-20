@@ -2,39 +2,58 @@ const bigBox = document.querySelector('.box-container');
 const reset = document.querySelector('.resetButton');
 var slider = document.querySelector('.slider'); 
 var output = document.querySelector('.slider-output');
-
-output.innerHTML = "80 x 80";
-
-// Generates a grid of 64x64 
-for (let i = 1; i <= 256; i++ ) { 
-    const squares = document.createElement('div');
-    squares.classList.add('square')
-    bigBox.appendChild(squares)
-};
+var cells = document.querySelectorAll('.square');
 
 
-const cells = document.querySelectorAll('.square');
 
-// Changes the colour of cells hovered over 
-cells.forEach((cell) => { 
+//Shows text to indicate the size of the starting grid 
+output.innerHTML = "16 x 16";
 
-    cell.addEventListener('click', () => {
-        cell.style.backgroundColor = 'black';
+
+function generateGrid(rows, cols) { 
+    bigBox.style.setProperty("--grid-rows", rows); 
+    bigBox.style.setProperty("--grid-columns", cols);
+    for (i= 1; i <= rows * cols; i++) { 
+        let sq = document.createElement('div');
+        bigBox.appendChild(sq).className = "square";
+    }
+    var cells = document.querySelectorAll('.square');
+
+    cells.forEach((cell) => { 
+    cell.addEventListener('mouseover', () => {
+    cell.style.backgroundColor = '#388697';
+        
     });
-});
+    });
+
+    function resetGame() {
+        cells.forEach((cell) => { 
+            cell.style.backgroundColor = '';
+        });
+    };
+    
+    // Reset button 
+    reset.addEventListener('click', () => {
+        resetGame()
+    });
+}
+
+generateGrid(16,16)
+
+
+function clear() { 
+    bigBox.innerHTML = ''
+}
+
+slider.addEventListener("input", sliderValue)
+
+function sliderValue() { 
+    clear()
+    let range = document.getElementById("myRange").value;
+    generateGrid(range, range);
+}
 
 // Resets the board to a blank slate
-function resetGame() {
-    cells.forEach((cell) => { 
-        cell.style.backgroundColor = '';
-});
-};
-
-
-// Reset button 
-reset.addEventListener('click', () => {
-    resetGame()
-});
 
 slider.oninput = function() { 
     output.innerHTML = this.value + 'x' + this.value;
