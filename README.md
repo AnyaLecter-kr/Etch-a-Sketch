@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-[ 🌱  Live Demo](http://anyalecter-kr.github.io/etch-a-sketch)
+[ 🌱  Live Demo](https://anyalecter-kr.github.io/Etch-a-Sketch/)
