@@ -1,5 +1,8 @@
 const bigBox = document.querySelector('.box-container');
 const reset = document.querySelector('.resetButton');
+const erase = document.querySelector('.erase');
+const pen = document.querySelector('.pen');
+
 var slider = document.querySelector('.slider'); 
 var output = document.querySelector('.slider-output');
 var cells = document.querySelectorAll('.square');
@@ -19,11 +22,30 @@ function generateGrid(rows, cols) {
     }
     var cells = document.querySelectorAll('.square');
 
-    cells.forEach((cell) => { 
-    cell.addEventListener('mouseover', () => {
-    cell.style.backgroundColor = '#388697';
-        
-    });
+    function draw() {
+        cells.forEach((cell) => { 
+        cell.addEventListener('click', () => {
+        cell.style.backgroundColor = '#DD7230';
+        });
+        });
+    }
+
+    pen.addEventListener('click', ()=> {
+        draw()
+    })
+
+
+    function eraser() { 
+        cells.forEach((cell) => { 
+            cell.addEventListener('click', () => {
+            cell.style.backgroundColor = '';
+                
+            });
+            });
+    }
+
+    erase.addEventListener('click', () => { 
+        eraser()
     });
 
     function resetGame() {
@@ -36,6 +58,7 @@ function generateGrid(rows, cols) {
     reset.addEventListener('click', () => {
         resetGame()
     });
+
 }
 
 generateGrid(16,16)
@@ -57,4 +80,12 @@ function sliderValue() {
 
 slider.oninput = function() { 
     output.innerHTML = this.value + 'x' + this.value;
+}
+
+
+
+function eraser() { 
+    cells.forEach((cell) => { 
+        cell.style.backgroundColor = '';
+    });
 }

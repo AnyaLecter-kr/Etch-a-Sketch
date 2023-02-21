@@ -31,14 +31,14 @@ body {
 .box-container {
     border: 1px solid #DD7230;
     display: grid;
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     grid-template-columns: repeat(var(--grid-columns), 2fr);
     grid-template-rows: repeat(var(--grid-rows), 2fr);
 }   
 
 .square {
-    border: 1px solid #DD7230;
+    border: 1px solid #D1603D;
 
 }
 
